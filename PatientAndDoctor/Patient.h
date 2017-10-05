@@ -1,0 +1,30 @@
+//
+//  Patient.h
+//  PatientAndDoctor
+//
+//  Created by Sanjay Shah on 2017-10-05.
+//  Copyright © 2017 Sanjay Shah. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+
+@class Doctor;
+
+@interface Patient : NSObject
+
+@property NSString * name;
+@property NSInteger * age;
+@property Doctor *doctor;
+@property BOOL healthCard;
+@property NSArray *symptoms;
+
+
+-(instancetype) initWithValues:(NSString*) patientName age:(NSInteger*) age doctor:(Doctor*) doctor healthCard:(BOOL) healthCard symptoms:(NSArray*) symptoms;
+-(void) visitDoctor:(Doctor*) doc;
+-(void) requestMedication:(NSArray*) symtoms;
+
+
+
+
+
+@end

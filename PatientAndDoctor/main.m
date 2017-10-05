@@ -7,11 +7,31 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Doctor.h"
+#import "Patient.h"
+
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        // insert code here...
-        NSLog(@"Hello, World!");
+
+        
+        NSArray* symtoms1 = [NSArray arrayWithObjects:@"Fever", @"Cold", nil];
+        NSArray* symtoms2 = NULL;
+        
+        Doctor * doc = [[Doctor alloc] initWithValues:@"Sanjay" spec:@"Physio" ];
+        
+        Patient * pat = [[Patient alloc] initWithValues:@"nik" age:22 doctor:doc healthCard:true symptoms:symtoms1];
+        Patient * pat2 = [[Patient alloc] initWithValues:@"Paul" age:25 doctor:doc healthCard:true symptoms:symtoms2];
+        
+        [pat visitDoctor:doc];
+        [pat requestMedication:symtoms1];
+        
+        
+        
+
+
+        
+        
     }
     return 0;
 }
