@@ -18,13 +18,22 @@ int main(int argc, const char * argv[]) {
         NSArray* symtoms1 = [NSArray arrayWithObjects:@"Fever", @"Cold", nil];
         NSArray* symtoms2 = NULL;
         
-        Doctor * doc = [[Doctor alloc] initWithValues:@"Sanjay" spec:@"Physio" ];
+        NSMutableArray *prescriptionsArr = [[NSMutableArray alloc] init];
+         NSMutableArray *acceptedPatientsArr = [[NSMutableArray alloc] init];
         
-        Patient * pat = [[Patient alloc] initWithValues:@"nik" age:22 doctor:doc healthCard:true symptoms:symtoms1];
-        Patient * pat2 = [[Patient alloc] initWithValues:@"Paul" age:25 doctor:doc healthCard:true symptoms:symtoms2];
         
-        [pat visitDoctor:doc];
-        [pat requestMedication:symtoms1];
+        Doctor * doc = [[Doctor alloc] initWithValues:@"Sanjay" spec:@"Physio" acceptedPatients:acceptedPatientsArr];
+        
+        Patient * pat = [[Patient alloc] initWithValues:@"Nik" age:((NSInteger*) 22) doctor:doc healthCard:true  prescriptions:prescriptionsArr];
+        
+        Patient * pat2 = [[Patient alloc] initWithValues:@"Paul" age:(NSInteger*) 25 doctor:doc healthCard:true prescriptions:prescriptionsArr];
+        
+
+//        [pat visitDoctor:doc];
+//        [pat requestMedication:symtoms1];
+        
+        [pat2 visitDoctor:doc];
+        [pat2 requestMedication:symtoms2];
         
         
         

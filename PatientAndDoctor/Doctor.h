@@ -14,11 +14,11 @@
 
 @property NSString * specialization;
 @property NSString * name;
-@property NSMutableDictionary *acceptedPatients;
+@property NSMutableArray *acceptedPatients;
 
--(instancetype) initWithValues: (NSString*) docName spec:(NSString*) spec;
+-(instancetype) initWithValues: (NSString*) docName spec:(NSString*) spec acceptedPatients:(NSMutableArray*) acceptedPatients;
 -(BOOL) acceptPatient: (Patient*) p;
--(NSString*) prescribeMedication: (Patient*) p;
+-(NSString*) prescribeMedication: (Patient*) p symptoms:(NSArray*) symptoms;
 
 
 @end

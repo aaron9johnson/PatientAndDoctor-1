@@ -22,7 +22,7 @@
 //}
 
 
--(instancetype) initWithValues:(NSString*) patientName age:(NSInteger*) age doctor:(Doctor*) doctor healthCard:(BOOL) healthCard symptoms:(NSArray*) symptoms{
+-(instancetype) initWithValues:(NSString*) patientName age:(NSInteger*) age doctor:(Doctor*) doctor healthCard:(BOOL) healthCard prescriptions:(NSMutableArray*) prescriptions{
     
     self = [super init];
     if (self){
@@ -31,8 +31,8 @@
         self.age = age;
         self.doctor = doctor;
         self.healthCard = healthCard;
-        self.symptoms = symptoms;
-        
+  //     self.symptoms = symptoms;
+        self.prescriptions = prescriptions;
         
         NSLog(@"A patient is constructed with a all details");
         
@@ -42,20 +42,22 @@
 
 
 
-
+//if a patient wants to visit a doctor, the doctor must accept him.
 
 -(void) visitDoctor:(Doctor*) doc {
     [self.doctor acceptPatient:self];
     
 }
 
+
+//if a patient requests medication, the doctor can prescribe him
+
 -(void) requestMedication:(NSArray*) symtoms {
-    NSString *prescription = [self.doctor prescribeMedication:self];
-    NSLog(@"%@", prescription);
+    NSString *prescription = [self.doctor prescribeMedication:self symptoms:symtoms];
+    NSLog(@"Prescribing: %@", prescription);
+    NSLog(@"These are the list of all his/her prescriptions: %@", _prescriptions);
     
 }
 
-
-//A patient should be able to visit a doctor. Tip: This is an action that the patient is executing and requires an instance of a doctor to do so.
 
 @end
